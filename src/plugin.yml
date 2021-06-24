@@ -17,3 +17,5 @@ commands:
     description: Report a player
   staff:
     description: Equip staff tools
+  chat:
+    description: Switch chat regions

@@ -59,8 +59,6 @@ public class Commands implements CommandExecutor {
                     }
                     Utils.send(player, "§cRevealed!");
                 }
-            } else {
-                Utils.send(player, "§cSorry, only staff have access to that command!");
             }
             if (cmd.getName().equalsIgnoreCase("staff")) {
                 player.getInventory().clear();
@@ -68,6 +66,19 @@ public class Commands implements CommandExecutor {
                 player.getInventory().setItem(4, ItemsList.vanishPotion());
                 player.getInventory().setItem(8, ItemsList.clearInv());
                 Utils.send(player, "§aGranted staff tools!");
+            }
+            if (cmd.getName().equalsIgnoreCase("chat")) {
+                if (args.length > 0) {
+                    if (args[0].equalsIgnoreCase("all")) {
+                        Utils.getConfig().set("Staff." + player.getUniqueId() + ".Chat", "all");
+                        Utils.send(player, "§aYou are now in all chat");
+                    }
+                    if (args[0].equalsIgnoreCase("staff")) {
+                        Utils.getConfig().set("Staff." + player.getUniqueId() + ".Chat", "staff");
+                        Utils.send(player, "§aYou are now in staff chat");
+                    }
+                    Utils.saveConfig();
+                }
             }
         }
 

@@ -19,6 +19,7 @@ Congrats, you did it!
 - `/feed [player]` Feed the player (or yourself if the player is not defined)
 - `/vanish` Vanish or reveal yourself
 - `/staff` Equip [Staff Items](#staff-items)
+- `/chat <all|staff>` Your next messages will be sent in all or staff only chat 
 
 #### Player Commands
 - `/report <player> <reason>` Sends a message to all staff with the number of times he has been reported (staff can click on the message to teleport to reported player)

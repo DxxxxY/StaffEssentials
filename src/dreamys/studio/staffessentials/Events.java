@@ -2,13 +2,11 @@ package dreamys.studio.staffessentials;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.inventory.InventoryAction;
-import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
@@ -66,5 +64,17 @@ public class Events implements Listener {
         if (e.getItemDrop().getItemStack().equals(ItemsList.banWand())) e.setCancelled(true);
         if (e.getItemDrop().getItemStack().equals(ItemsList.vanishPotion())) e.setCancelled(true);
         if (e.getItemDrop().getItemStack().equals(ItemsList.clearInv())) e.setCancelled(true);
+    }
+
+    @EventHandler
+    public void onChatMessage(AsyncPlayerChatEvent e) {
+        if (e.getPlayer().isOp()) {
+            if (Utils.getConfig().getString("Staff." + e.getPlayer().getUniqueId() + ".Chat", "all").equals("staff")) {
+                for (Player player : Bukkit.getOnlinePlayers()) {
+                    if (player.isOp()) Utils.send(player, e.getPlayer().getName() + ": " + e.getMessage());
+                }
+                e.setCancelled(true);
+            }
+        }
     }
 }

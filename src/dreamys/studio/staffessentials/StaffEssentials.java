@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class StaffEssentials extends JavaPlugin {
-    ArrayList<String> commandNames = new ArrayList<>(Arrays.asList("heal", "feed", "vanish", "staff", "report"));
+    ArrayList<String> commandNames = new ArrayList<>(Arrays.asList("heal", "feed", "vanish", "staff", "report", "chat"));
     ArrayList<Listener> eventNames = new ArrayList<>(Arrays.asList(new Events()));
     @Override
     public void onEnable() {
