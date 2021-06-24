@@ -1,6 +1,9 @@
 # StaffEssentials
 Spigot plugin that helps staff with quality of life changes
 
+## Compatibility
+This plugin was made with api-version 1.8.8. I'll see if I can make it work cross-version without me having to recode it for every single version.
+
 ## Commands
 > <> is required, [] is optional
 
