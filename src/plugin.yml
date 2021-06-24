@@ -1,0 +1,17 @@
+name: StaffEssentials
+version: 1.0
+author: DxxxxY
+load: STARTUP
+main: dreamys.studio.staffessentials.StaffEssentials
+api-version: 1.8.8
+commands:
+  #[] optional
+  #<> required
+  heal:
+    description: Heal a player
+  feed:
+    description: Feed a player
+  vanish:
+    description: Vanish
+  report:
+    description: Report a player

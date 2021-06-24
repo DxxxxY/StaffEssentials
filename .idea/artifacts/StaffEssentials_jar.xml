@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="StaffEssentials:jar">
+    <output-path>$PROJECT_DIR$/../Server/plugins</output-path>
+    <root id="archive" name="StaffEssentials.jar">
+      <element id="module-output" name="StaffEssentials" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Dependencies/craftbukkit-1.8.8-R0.1-SNAPSHOT-latest.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Dependencies/spigot-api-1.8.8.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
