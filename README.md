@@ -11,7 +11,7 @@ This plugin was made with api-version 1.8.8. I'll see if I can make it work cros
 - `/heal [player]` Heal the player (or yourself if the player is not defined)
 - `/feed [player]` Feed the player (or yourself if the player is not defined)
 - `/vanish` Vanish or reveal yourself
-- `/staff` Equip staff items
+- `/staff` Equip [Staff Items](#staff-items)
 
 #### Player Commands
 - `/report <player> <reason>` Sends a message to all staff with the number of times he has been reported (staff can click on the message to teleport to reported player)
