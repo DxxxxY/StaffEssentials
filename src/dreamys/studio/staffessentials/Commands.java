@@ -19,26 +19,30 @@ public class Commands implements CommandExecutor {
             Utils.log("Only players can use that command!");
         }
         Player player = (Player) sender;
-        if (cmd.getName().equalsIgnoreCase("heal")) {
-            if (args.length > 0) {
-                Utils.send(player, "Healed [" + Bukkit.getPlayer(args[0]) +  "] for [" + Math.round((Bukkit.getPlayer(args[0]).getMaxHealth() - Bukkit.getPlayer(args[0]).getHealth())) + "] hearts");
-                Bukkit.getPlayer(args[0]).setHealth(Bukkit.getPlayer(args[0]).getMaxHealth());
-            } else {
-                Utils.send(player, "Healed yourself for [" + Math.round(player.getMaxHealth() - player.getHealth()) + "] hearts");
-                player.setHealth(player.getMaxHealth());
+
+
+
+        //Staff commands
+        if (player.isOp()) {
+            if (cmd.getName().equalsIgnoreCase("heal")) {
+                if (args.length > 0) {
+                    Utils.send(player, "Healed [" + Bukkit.getPlayer(args[0]) +  "] for [" + Math.round((Bukkit.getPlayer(args[0]).getMaxHealth() - Bukkit.getPlayer(args[0]).getHealth())) + "] hearts");
+                    Bukkit.getPlayer(args[0]).setHealth(Bukkit.getPlayer(args[0]).getMaxHealth());
+                } else {
+                    Utils.send(player, "Healed yourself for [" + Math.round(player.getMaxHealth() - player.getHealth()) + "] hearts");
+                    player.setHealth(player.getMaxHealth());
+                }
             }
-        }
-        if (cmd.getName().equalsIgnoreCase("feed")) {
-            if (args.length > 0) {
-                Utils.send(player, "Fed [" + Bukkit.getPlayer(args[0]) +  "]");
-                Bukkit.getPlayer(args[0]).setFoodLevel(20);
-            } else {
-                Utils.send(player, "Fed yourself");
-                player.setFoodLevel(20);
+            if (cmd.getName().equalsIgnoreCase("feed")) {
+                if (args.length > 0) {
+                    Utils.send(player, "Fed [" + Bukkit.getPlayer(args[0]) +  "]");
+                    Bukkit.getPlayer(args[0]).setFoodLevel(20);
+                } else {
+                    Utils.send(player, "Fed yourself");
+                    player.setFoodLevel(20);
+                }
             }
-        }
-        if (cmd.getName().equalsIgnoreCase("vanish")) {
-            if (player.isOp()) {
+            if (cmd.getName().equalsIgnoreCase("vanish")) {
                 boolean vanished = Utils.getConfig().getBoolean("Staff." + player.getUniqueId() + ".Vanished", false);
                 if (!vanished) {
                     Utils.getConfig().set("Staff." + player.getUniqueId() + ".Vanished", true);
@@ -58,7 +62,18 @@ public class Commands implements CommandExecutor {
             } else {
                 Utils.send(player, "§cSorry, only staff have access to that command!");
             }
+            if (cmd.getName().equalsIgnoreCase("staff")) {
+                player.getInventory().clear();
+                player.getInventory().setItem(0, ItemsList.banWand());
+                player.getInventory().setItem(4, ItemsList.vanishPotion());
+                player.getInventory().setItem(8, ItemsList.clearInv());
+                Utils.send(player, "§aGranted staff tools!");
+            }
         }
+
+
+
+        //Player commands
         if (cmd.getName().equalsIgnoreCase("report")) {
             if (args.length >= 2) {
                 reportedPlayer.putIfAbsent(args[0].toLowerCase(), 0);

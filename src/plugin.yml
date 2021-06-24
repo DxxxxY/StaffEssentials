@@ -15,3 +15,5 @@ commands:
     description: Vanish
   report:
     description: Report a player
+  staff:
+    description: Equip staff tools
