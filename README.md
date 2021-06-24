@@ -4,6 +4,13 @@ Spigot plugin that helps staff with quality of life changes
 ## Compatibility
 This plugin was made with api-version 1.8.8. I'll see if I can make it work cross-version without me having to recode it for every single version.
 
+## Installation
+1. Head to [Releases](https://github.com/DxxxxY/StaffEssentials/releases)
+2. Download the plugin .jar
+3. Move it inside the `server/plugins` folder
+
+Congrats, you did it!
+
 ## Commands
 > <> is required, [] is optional
 
